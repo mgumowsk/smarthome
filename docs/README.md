@@ -11,7 +11,7 @@ Main assumption for hardware is alternative libraries accessibility (any shell, 
 |Broadlink TC2|Light switch|RF controlled (no WiFi range problems), nice outlook|***Lack of current state check***|-|
 |Broadlink SP2|Remote WiFi switch|Brighten manual toggle|Lack of manual network setup|-|
 |Shelly 1|Remote WiFi switch|-|-|-|
-|iNodeMeter|Power meter (optical version)|Linux based scripts for automation|Problems with range. Be ready to buy additional USB bluetooth dongle and do additional wire or additional Ethernet expander.|[iNode Meter](https://inode.pl/   iNode-Energy-Meter-opto,p,27)|
+|iNodeMeter|Power meter (optical version)|Linux based scripts for automation|Problems with range. Be ready to buy additional USB bluetooth dongle and do additional wire or additional Ethernet expander.|[iNode Meter](https://inode.pl/iNode-Energy-Meter-opto,p,27)|
 |ESP8266 (nodeMCU)|Universal WiFi building block|Embedded UART, 5V power supply|-|-|
 |IR LED Controller (44 keys version)|RGB LED strip controller|-|-|[IR RGB Dimmer](https://www.aliexpress.com/wholesale?SearchText=RGB+44+keys+remote+dimmer)|
 |Equiva eQ3 Bluetooth|Smart radiator thermostat|-|-|-|
@@ -68,6 +68,7 @@ ESP8266 (nodeMCU) based sensor with optional functions:
 - CIR - detect opening/closure the circuit
 - light intensity detector (photoresistor)
 - [Arduino sketch](/src/conf/arduino/multisensor.sketch/multisensor.sketch.ino)
+- Migration to ESP32 to handle Equiva eQ3 control
 
 ### Blind controller
 
@@ -89,9 +90,9 @@ ESP8266 (nodeMCU) based sensor with optional functions:
   - debug - share all important values to assess driver and mechanism status
 - [Arduino sketch](/src/conf/arduino/servobig.sketch/servobig.sketch.ino)
 
-![Blind preparation](images/blind_preparation.jpg)
-![Blind completed](images/blind_completed.jpg)
-![Blind mounted](images/blind_mounted.jpg)
+![Blind preparation](images/blind-preparation.png)
+![Blind completed](images/blind-completed.png)
+![Blind mounted](images/blind-mounted.png)
 
 #### Mechanical issues discussion
 
@@ -103,7 +104,7 @@ To join servo and roller axis I've used a piece of steel wire nailed on the scre
 
 #### Limit detection discussion
 
-Limit detection is MUST BE. Using servo you cannot predict real position after some time. 
+Limit detection is MUST BE. Using servo you cannot predict real position after some time.
 
 First generation of limit switch (I've installed both: upper and bottom) was based on magnetic door switch. It was not reliable and after some time I've had problems with proper state detection. Using stronger magnet was not good - reed was failing due strong magnetic field.
 
